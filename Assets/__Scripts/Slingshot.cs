@@ -36,12 +36,12 @@ public class Slingshot : MonoBehaviour
 	}
 	void OnMouseEnter()
 	{
-		print("slingshot:MouseEnter");
+		// print("slingshot:MouseEnter");
 		launchPoint.SetActive(true);
 	}
 	void OnMouseExit()
 	{
-		print("slingshot:onMouseExit");
+		// print("slingshot:onMouseExit");
 		launchPoint.SetActive(false);
 	}
 	void OnMouseDown()
@@ -75,7 +75,10 @@ public class Slingshot : MonoBehaviour
 			_projectileRigidbody.velocity = -mouseDelta * velMult;
 			FollowCam.POI = projectile;
 			projectile = null;
+			MissionDemolition.ShotFired();
+			ProjectileLine.S.poi = projectile;
 		}
+		
 	}
 		
 }
